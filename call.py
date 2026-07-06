@@ -9,7 +9,7 @@ load_dotenv()
 
 client = Client(os.environ["TWILIO_ACCOUNT_SID"], os.environ["TWILIO_AUTH_TOKEN"])
 FROM_NUMBER = os.environ["TWILIO_PHONE_NUMBER"]
-TO_NUMBER = "+18054398008"
+TO_NUMBER = "Voice Agent Number"
 BASE_URL = os.environ["BASE_URL"]
 
 
