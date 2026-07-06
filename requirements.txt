@@ -1,0 +1,6 @@
+flask==3.1.0
+twilio==9.10.9
+anthropic==0.43.0
+python-dotenv==1.0.1
+requests==2.32.3
+openai>=2.0.0
