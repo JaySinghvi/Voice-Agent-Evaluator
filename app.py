@@ -49,7 +49,7 @@ def answer():
         timeout=10,
     )
     response.append(gather)
-    # Fallback: if PGAI doesn't speak within timeout, re-listen
+    # Fallback: if agent doesn't speak within timeout, re-listen
     response.redirect(f"/gather?scenario={scenario_name}&no_speech=true", method="POST")
 
     return Response(str(response), mimetype="text/xml")
@@ -98,7 +98,7 @@ def gather():
         response.hangup()
         return Response(str(response), mimetype="text/xml")
 
-    # Log what the PGAI agent said
+    # Log what the agent said
     print(f"[{call_sid[:8]}] Agent: {speech_result}")
     conv["transcript"].append({"speaker": "Agent", "text": speech_result})
     conv["messages"].append({"role": "user", "content": speech_result})
@@ -209,7 +209,7 @@ def _analyze_transcript(call_sid, conv):
         transcript_text += f"{turn['speaker']}: {turn['text']}\n\n"
 
     system_prompt = (
-        "You are a QA evaluator testing a medical AI phone agent called the PGAI Agent. "
+        "You are a QA evaluator testing a medical AI phone agent. "
         "Your job is to review a conversation transcript and identify bugs, errors, or quality issues "
         "in the Agent's responses. Focus only on what the Agent said — not the Patient. "
         "For each issue found, output it in this exact format:\n\n"
