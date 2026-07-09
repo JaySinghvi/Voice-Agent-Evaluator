@@ -226,7 +226,7 @@ def _analyze_transcript(call_sid, conv):
     )
 
     resp = anthropic.messages.create(
-        model="claude-haiku-4-5-20251001",
+        model="claude-sonnet-4-6-20251001",
         max_tokens=1000,
         system=system_prompt,
         messages=[{"role": "user", "content": user_prompt}],
